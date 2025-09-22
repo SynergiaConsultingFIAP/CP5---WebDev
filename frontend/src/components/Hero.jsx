@@ -1,4 +1,3 @@
-import React from "react";
 import BannerImage from "../assets/BannerImage.png";
 
 const Hero = () => {
@@ -16,14 +15,14 @@ const Hero = () => {
             🍕 GourmetOn
           </h1>
           <p className="mt-6 text-lg md:text-xl font-medium max-w-3xl mx-auto">
-            Seu delivery de comida favorito, rápido e fácil!  
+            Seu delivery de comida favorito, rápido e fácil!
             Explore restaurantes, descubra novos sabores e peça em segundos.
           </p>
           <div className="mt-10 flex justify-center gap-6">
-            <button className="px-8 py-4 bg-white text-red-600 font-semibold text-lg rounded-xl shadow-md hover:scale-105 hover:bg-red-100 transition transform duration-300 flex items-center gap-2">
+            <button className="px-8 py-4 bg-white text-red-600 font-semibold text-lg rounded-xl shadow-md hover:scale-105 transition transform duration-300 flex items-center gap-2">
               📲 Baixar App
             </button>
-            <button className="px-8 py-4 bg-white text-red-600 border border-white font-semibold text-lg rounded-xl hover:scale-105 hover:bg-white transition transform duration-300 flex items-center gap-2">
+            <button className="px-8 py-4 bg-white text-red-600 border border-white font-semibold text-lg rounded-xl hover:scale-105 transition transform duration-300 flex items-center gap-2">
               🍽️ Ver Cardápio
             </button>
           </div>
