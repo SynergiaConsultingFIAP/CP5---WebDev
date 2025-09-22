@@ -11,7 +11,7 @@ const Contato = () => {
           placeholder="Seu e-mail"
           className="px-4 py-2 rounded-lg border border-gray-300 w-64"
         />
-        <button className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-600">
+        <button className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:scale-105 hover:bg-red-600 transition transform duration-300">
           Inscrever-se
         </button>
       </form>
