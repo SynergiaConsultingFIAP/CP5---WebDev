@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <Hero/>
+      <div className="h-8 bg-gradient-to-b from-orange-600 via-orange-500 to-orange-400"></div>
       <Apresentacao/>
       <Contato/>
       <Depoimentos/>
