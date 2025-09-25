@@ -32,7 +32,6 @@ const Depoimentos = () => {
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {depoimentos.map((dep) => (
               <div key={dep.id} className="relative flex flex-col items-center">
-                {/* Balão */}
                 <div
                   className="bg-white text-black p-6 rounded-xl shadow-md border border-blue-500 
                              transform transition-transform duration-500 hover:scale-102 hover:shadow-lg 
