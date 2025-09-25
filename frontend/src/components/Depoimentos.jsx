@@ -29,14 +29,19 @@ const Depoimentos = () => {
         ) : depoimentos.length === 0 ? (
           <p className="text-lg">Nenhum depoimento encontrado.</p>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {depoimentos.map((dep) => (
-              <div
-                key={dep.id}
-                className="bg-white text-gray-800 p-6 rounded-2xl shadow-lg border border-orange-300"
-              >
-                <p className="italic mb-4">"{dep.mensagem}"</p>
-                <h3 className="font-semibold text-orange-600">
+              <div key={dep.id} className="relative flex flex-col items-center">
+                {/* Balão */}
+                <div
+                  className="bg-white text-black p-6 rounded-xl shadow-md border border-blue-500 
+                             transform transition-transform duration-500 hover:scale-102 hover:shadow-lg 
+                             hover:text-black relative"
+                >
+                  <p className="italic mb-4">"{dep.mensagem}"</p>
+                </div>
+                <div className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
+                <h3 className="font-semibold text-orange-600 mt-2">
                   - {dep.nome}
                 </h3>
               </div>
