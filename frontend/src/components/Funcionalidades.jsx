@@ -18,7 +18,7 @@ const Funcionalidades = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-orange-600 to-pink-600" id="funcionalidades">
+    <section className="py-16 bg-gradient-to-b from-orange-500 to-orange-700" id="funcionalidades">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-white mb-8">
           Funcionalidades

@@ -15,7 +15,7 @@ const Contato = () => {
   };
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-b from-blue-700 to-blue-500 text-center">
+    <section className="py-16 px-6 bg-gradient-to-b from-blue-700 to-blue-500 text-center" id='contato'>
       <h2 className="text-3xl font-bold mb-4 text-white">Fique por dentro!</h2>
       <p className="text-white text-opacity-170 mb-6">
         Cadastre seu e-mail para receber novidades, ofertas exclusivas e concorrer a premios imperdíveis.

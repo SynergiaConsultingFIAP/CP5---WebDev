@@ -2,7 +2,7 @@ import React from 'react';
 
 const Apresentacao = () => {
   return (
-    <section className="bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 py-20 px-6 text-center text-white">
+    <section className="bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 py-20 px-6 text-center text-white" id='apresentacao'>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl font-bold mb-8">
           Por que escolher o GourmetOn?

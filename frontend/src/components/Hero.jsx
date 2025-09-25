@@ -2,7 +2,7 @@ import BannerImage from "../assets/BannerImage.png";
 
 const Hero = () => {
   return (
-    <section className="relative flex items-center justify-center py-24 px-8">
+    <section className="relative flex items-center justify-center py-24 px-8 pt-50">
       <img
         src={BannerImage}
         alt="Banner GourmetOn"
@@ -22,9 +22,9 @@ const Hero = () => {
             <button className="px-8 py-4 bg-white text-red-600 font-semibold text-lg rounded-xl shadow-md hover:scale-105 transition transform duration-300 flex items-center gap-2">
               📲 Baixar App
             </button>
-            <button className="px-8 py-4 bg-white text-red-600 border border-white font-semibold text-lg rounded-xl hover:scale-105 transition transform duration-300 flex items-center gap-2">
+            <a href="#comidas" className="px-8 py-4 bg-white text-red-600 border border-white font-semibold text-lg rounded-xl hover:scale-105 transition transform duration-300 flex items-center gap-2">
               🍽️ Ver Cardápio
-            </button>
+            </a>
           </div>
         </div>
       </div>
