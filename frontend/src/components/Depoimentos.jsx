@@ -18,7 +18,7 @@ const Depoimentos = () => {
   }, []);
 
   return (
-    <section className="bg-orange-500 py-12 px-6 text-white">
+    <section className="bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 py-12 px-6 text-white">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">
           O que nossos clientes dizem 😊

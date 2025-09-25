@@ -3,7 +3,7 @@ import XIcon from '../assets/XIcon.svg';
 
 const Footer = () => {
   return (
-    <footer className="z-100 bottom-0 w-full bg-[#145A32] text-[#F4E1C1] py-6 ">
+    <footer className="z-100 bottom-0 w-full bg-gradient-to-b from-blue-700 to-blue-500 text-[#F4E1C1] py-6 ">
       <div className="text-center text-sm">
         <div className="flex justify-center space-x-4 mb-2 space-y-4">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
