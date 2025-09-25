@@ -3,12 +3,11 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(cors());
 
-// Rota de depoimentos
 app.get('/depoimentos', (req, res) => {
   const depoimentos = [
     {
@@ -29,6 +28,28 @@ app.get('/depoimentos', (req, res) => {
   ];
 
   res.json(depoimentos);
+});
+
+app.get('/comidas', async (req, res) => {
+  try {
+    const response = await fetch(`${process.env.THEMEALDB_URL}/randomselection.php`);
+    const data = await response.json();
+
+    const comidasFormatadas = data.meals.map(meal => ({
+      id: meal.idMeal,
+      title: meal.strMeal,
+      image: meal.strMealThumb,
+      area: meal.strArea,
+      category: meal.strCategory,
+      instructions: meal.strInstructions,
+      youtube: meal.strYoutube
+    }));
+
+    res.json(comidasFormatadas);
+  } catch (error) {
+    console.error("Erro ao buscar dados da API:", error);
+    res.status(500).json({ error: "Erro ao buscar dados da API de comidas." });
+  }
 });
 
 app.listen(PORT, () => {
