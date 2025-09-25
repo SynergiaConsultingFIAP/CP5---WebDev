@@ -2,8 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+const THEMEALDB_URL = process.env.THEMEALDB_URL || "https://www.themealdb.com/api/json/v1/1";
 
 app.use(express.json());
 app.use(cors());
@@ -32,18 +34,70 @@ app.get('/depoimentos', (req, res) => {
 
 app.get('/comidas', async (req, res) => {
   try {
-    const response = await fetch(`${process.env.THEMEALDB_URL}/randomselection.php`);
-    const data = await response.json();
+    const IDS = ["53013", "53065", "53014", "52823", "52770", "52854"];
 
-    const comidasFormatadas = data.meals.map(meal => ({
-      id: meal.idMeal,
-      title: meal.strMeal,
-      image: meal.strMealThumb,
-      area: meal.strArea,
-      category: meal.strCategory,
-      instructions: meal.strInstructions,
-      youtube: meal.strYoutube
-    }));
+    const traducoesTitulos = {
+      "Big Mac": "Big Mac",
+      "Sushi": "Sushi",
+      "Pizza Express Margherita": "Pizza Margherita",
+      "Salmon Prawn Risotto": "Risoto de Salmão com Camarão",
+      "Spaghetti Bolognese": "Espaguete à Bolonhesa",
+      "Pancakes": "Panquecas"
+    };
+
+    const traducoesCategorias = {
+      "Beef": "Carne",
+      "Seafood": "Frutos do Mar",
+      "Dessert": "Sobremesa",
+      "Pasta": "Massa"
+    };
+
+    const traducoesAreas = {
+      "American": "Americana",
+      "Japanese": "Japonesa",
+      "Italian": "Italiana",
+      "British": "Britânica",
+      "Chinese": "Chinesa"
+    };
+
+    const promises = IDS.map(id =>
+      fetch(`${THEMEALDB_URL}/lookup.php?i=${id}`).then(r => r.json())
+    );
+
+    const results = await Promise.all(promises);
+    const comidas = results.flatMap(r => r.meals);
+
+    let comidasFormatadas = comidas.map(meal => {
+      let categoria = traducoesCategorias[meal.strCategory] || meal.strCategory;
+
+      if (meal.strMeal.includes("Spaghetti") || meal.strMeal.includes("Pizza")) {
+        categoria = "Massa";
+      }
+
+      return {
+        id: meal.idMeal,
+        titulo: traducoesTitulos[meal.strMeal] || meal.strMeal,
+        image: meal.strMealThumb,
+        area: traducoesAreas[meal.strArea] || meal.strArea,
+        categoria,
+        instructions: meal.strInstructions,
+        youtube: meal.strYoutube
+      };
+    });
+
+    const { nome, categoria } = req.query;
+
+    if (nome) {
+      comidasFormatadas = comidasFormatadas.filter(c =>
+        c.titulo.toLowerCase().includes(nome.toLowerCase())
+      );
+    }
+
+    if (categoria) {
+      comidasFormatadas = comidasFormatadas.filter(c =>
+        c.categoria.toLowerCase().includes(categoria.toLowerCase())
+      );
+    }
 
     res.json(comidasFormatadas);
   } catch (error) {
